@@ -1,0 +1,88 @@
+CREATE TABLE `tab_menu` (
+  `id` int(10) NOT NULL,
+  `pid` int(10) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `title` varchar(20) DEFAULT NULL,
+  `target` varchar(10) DEFAULT NULL,
+  `icon` varchar(20) DEFAULT NULL,
+  `iconopen` varchar(20) DEFAULT NULL,
+  `opened` char(1) DEFAULT NULL,
+  `text` varchar(255) DEFAULT NULL,
+  `src` varchar(255) DEFAULT NULL,
+  `action` varchar(255) DEFAULT NULL,
+  `openIcon` varchar(255) DEFAULT NULL,
+  `data` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `tab_user` (
+  `user_id` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `dept_id` int(10) DEFAULT NULL,
+  `user_name` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+insert into tab_user(user_id,password,dept_id,user_name) VALUES ('admin','admin',0,'系统管理员');
+
+
+CREATE TABLE `tab_user_menu` (
+  `user_id` varchar(20) NOT NULL,
+  `menu_id` int(20) NOT NULL,
+  PRIMARY KEY (`user_id`,`menu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `tab_report` (
+  `report_id` varchar(20) NOT NULL,
+  `report_name` varchar(100) DEFAULT NULL,
+  `templet_path` varchar(100) DEFAULT NULL,
+  `excute_sql` varchar(1000) DEFAULT NULL,
+  `where_sql` varchar(100) DEFAULT NULL,
+  `remark` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`report_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `tab_employee` (
+  `eid` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `job` varchar(255) DEFAULT NULL,
+  `age` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `join_time` varchar(255) DEFAULT NULL,
+  `college` varchar(255) DEFAULT NULL,
+  `graduate_time` varchar(255) DEFAULT NULL,
+  `salary_month` int(10) DEFAULT NULL,
+  `dept_id` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `tab_dept` (
+  `dept_id` int(10) NOT NULL,
+  `pid` int(10) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `title` varchar(20) DEFAULT NULL,
+  `target` varchar(10) DEFAULT NULL,
+  `icon` varchar(20) DEFAULT NULL,
+  `iconopen` varchar(20) DEFAULT NULL,
+  `opened` char(1) DEFAULT NULL,
+  `text` varchar(255) DEFAULT NULL,
+  `src` varchar(255) DEFAULT NULL,
+  `action` varchar(255) DEFAULT NULL,
+  `openIcon` varchar(255) DEFAULT NULL,
+  `data` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`dept_id`),
+  KEY `FKC9E96CAF4F091126` (`pid`),
+  CONSTRAINT `FKC9E96CAF4F091126` FOREIGN KEY (`pid`) REFERENCES `tab_dept` (`dept_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tab_select` (
+  `sel_name` varchar(20) NOT NULL,
+  `opt_name` varchar(20) NOT NULL,
+  `opt_val` varchar(20) DEFAULT NULL,
+  `indx` int(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

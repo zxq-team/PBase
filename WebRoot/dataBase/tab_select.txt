@@ -1,0 +1,2 @@
+status	 离职	0	0
+status	在职	1	1

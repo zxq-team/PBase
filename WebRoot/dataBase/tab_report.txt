@@ -1,0 +1,7 @@
+1407318009920	测试报表	/report/design/test_sql.rptdesign	select tab_employee.name,tab_employee.job,tab_employee.age,tab_employee.status,tab_employee.join_time from tab_employee where tab_employee.age=? and tab_employee.status=? 	int:33,String:rere	null	1
+1407465379323	全数据统计	/report/design/test_sql.rptdesign	select tab_employee.name,tab_employee.job,tab_employee.age,tab_employee.status,tab_employee.join_time from tab_employee 			1
+1407724198593	多个参数统计模板	/report/design/test_sql.rptdesign	select tab_employee.name,tab_employee.job,tab_employee.age,tab_employee.status,tab_employee.join_time from tab_employee where age=? and college=? and join_time=?	int:33,String:nuc,date:2014-06-20	多个参数测试	1
+1407727903270	测试	null	test_proc(?,?)	 int:33,string:rere	规划	2
+proc1407728903979	测试2	null	test_proc(?)	String:iiiiiiiii	null	2
+report1408435199198	图表测试模板	/report/design/dept_salary.rptdesign	select tab_employee.*,tab_dept.name as dept_name from tab_employee , tab_dept where tab_employee.dept_id=tab_dept.dept_id 		各部门平均工资	1
+report1408689325081	交叉表模板	/report/design/cross_tab.rptdesign	select tab_employee.*,tab_dept.name as dept_name from tab_employee ,tab_dept where tab_employee.dept_id=tab_dept.dept_id		交叉表测试	1
